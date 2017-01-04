@@ -1,5 +1,6 @@
 charmap = require 'charmap'
 bit = require 'bit32'
+Weapon = require 'weapon'
 
 local character = {
     character1       = 0x6100,
@@ -58,11 +59,11 @@ function Character:new (o)
 end
 
 function Character:getValueByLocationOffset(offset)
-  return memory.readbyte(self.ramLocation + offset)
+    return memory.readbyte(self.ramLocation + offset)
 end
 
 function Character:getValueByHighbyteAndLowbyteOffset(highbyte_offset, lowbyte_offset)
-  return bit.lshift(memory.readbyte(self.ramLocation + highbyte_offset), 8) + memory.readbyte(self.ramLocation + lowbyte_offset)
+    return bit.lshift(memory.readbyte(self.ramLocation + highbyte_offset), 8) + memory.readbyte(self.ramLocation + lowbyte_offset)
 end
 
 function Character:getName ()
@@ -109,8 +110,8 @@ function Character:getNextXP()
     return self:getValueByHighbyteAndLowbyteOffset(character['next_xp_highbyte'], character['next_xp_lowbyte'])
 end
 
-function Character:getWeapon(place)
-    return self:getValueByLocationOffset(character['weapon_' .. place])
+function Character:getWeapon(character_number)
+    return Weapon:new{ramLocation = self:getValueByLocationOffset(character['weapon_' .. character_number])}
 end
 
 function Character:getArmor(place)

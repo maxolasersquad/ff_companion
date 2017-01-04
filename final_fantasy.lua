@@ -4,7 +4,8 @@ bit = require 'bit32'
 lgi = require 'lgi'
 character = require 'character'
 
-Gtk = lgi.Gtk
+--Gtk = lgi.Gtk
+Gtk = lgi.require('Gtk', '3.0')
 builder = Gtk.Builder()
 builder:add_from_file('final_fantasy.glade')
 window = builder:get_object('window')
@@ -22,6 +23,7 @@ character1Name = builder:get_object('character_1_name_value')
 character1Status = builder:get_object('character_1_status_value')
 character1Experience = builder:get_object('character_1_xp_value')
 character1HP = builder:get_object('character_1_hp_value')
+character1Weapon = builder:get_object('character_1_weapon_value')
 window:show_all()
 
 --window = Gtk.Window()
@@ -31,64 +33,9 @@ window:show_all()
 gameRam = {
     buttonPressed = 0x0020,
     displayMode   = 0x000D,
-    character1    = 0x6100,
 }
---[[
-character = {
-    status          = 0x01,
-    name            = 0x02,
-		xp_lowbyte      = 0x07,
-    xp_highbyte     = 0x08,
-    hp_lowbyte      = 0x0A,
-    hp_highbyte     = 0x0B,
-    max_hp_lowbyte  = 0x0C,
-    max_hp_highbyte = 0x0D,
-		strength        = 0x10,
-}
---]]
 
-weapons = {
-    [0x00] = "Nothing",
-    [0x01] = "Wooden Nunchuck",
-    [0x02] = "Small Knife",
-    [0x03] = "Wooden Staff",
-    [0x04] = "Rapier",
-    [0x05] = "Iron Hammer",
-    [0x06] = "Short Sword",
-    [0x07] = "Hand Axe",
-    [0x08] = "Scimtar",
-    [0x09] = "Iron Nunchuck",
-    [0x0a] = "Large Knife",
-    [0x0b] = "Iron Staff",
-    [0x0c] = "Sabre",
-    [0x0d] = "Long Sword",
-    [0x0e] = "Great Axe",
-    [0x0f] = "Falchon",
-    [0x10] = "Silver Knife",
-    [0x11] = "Silver Sword",
-    [0x12] = "Silver Hammer",
-    [0x13] = "Silver Axe",
-    [0x14] = "Flame Sword",
-    [0x15] = "Ice Sword",
-    [0x16] = "Dragon Sword",
-    [0x17] = "Gian Sword",
-    [0x18] = "Sun Sword",
-    [0x19] = "Corel Sword",
-    [0x1a] = "Were Sword",
-    [0x1b] = "Rune Sword",
-    [0x1c] = "Power Staff",
-    [0x1d] = "Light Axe",
-    [0x1e] = "Heal Staff",
-    [0x1f] = "Mage Staff",
-    [0x20] = "Defense",
-    [0x21] = "Wizard Staff",
-    [0x22] = "Vorpal",
-    [0x23] = "Catclaw",
-    [0x24] = "Thor Hammer",
-    [0x25] = "Bane Sword",
-    [0x26] = "Katana",
-    [0x27] = "Xcaliber",
-    [0x28] = "Masamune",
+armor = {
     [0x29] = "Cloth",
     [0x2a] = "Wooden Armor",
     [0x2b] = "Chain Armor",
@@ -230,7 +177,11 @@ end
 function updateCharacter1HP()
 		character1HP:set_text(character.character1:getHP() .. ' / ' .. character.character1:getMaxHP(), -1)
 end
-    
+
+function updateCharacter1Weapon()
+    weapon = character.character1:getWeapon(1)
+    character1Weapon:set_text(weapon:getName() .. ': ' .. weapon:getDamage() )
+end
 
 while (true) do
     updateButtonPressed()
@@ -247,5 +198,6 @@ while (true) do
 		updateCharacter1Status()
 		updateCharacter1Experience()
 		updateCharacter1HP()
+    updateCharacter1Weapon()
     emu.frameadvance()
 end
