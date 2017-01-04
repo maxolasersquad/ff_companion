@@ -85,10 +85,70 @@ function Character:getMaxHP()
     return self:getValueByHighbyteAndLowbyteOffset(character['max_hp_highbyte'], character['max_hp_lowbyte'])
 end
 
+function Character:getStrength()
+    return self:getValueByLocationOffset(character['strength'])
+end
+
+function Character:getAgility()
+    return self:getValueByLocationOffset(character['agility'])
+end
+
+function Character:getIntelligence()
+    return self:getValueByLocationOffset(character['intelligence'])
+end
+
+function Character:getVitality()
+    return self:getValueByLocationOffset(character['vitality'])
+end
+
+function Character:getLuck()
+    return self:getValueByLocationOffset(character['luck'])
+end
+
+function Character:getNextXP()
+    return self:getValueByHighbyteAndLowbyteOffset(character['next_xp_highbyte'], character['next_xp_lowbyte'])
+end
+
+function Character:getWeapon(place)
+    return self:getValueByLocationOffset(character['weapon_' .. place])
+end
+
+function Character:getArmor(place)
+    return self:getValueByLocationOffset(character['armor_' .. place])
+end
+
+function Character:getMaxDamager()
+    return self:getValueByLocationOffset(character['max_damage'])
+end
+
+function Character:getHitPercent()
+    return self:getValueByLocationOffset(character['hit_percent'])
+end
+
+function Character:getAbsorbLevel()
+    return self:getValueByLocationOffset(character['absorb_level'])
+end
+
+function Character:getEvasion()
+    return self:getValueByLocationOffset(character['evasion'])
+end
+
+function Character:getHitPercent2()
+    return self:getValueByLocationOffset(character['hit_percent_2'])
+end
+
+function Character:getLevel()
+    return self:getValueByLocationOffset(character['level'])
+end
+
 local character1 = Character:new{ramLocation = character['character1']}
 local character2 = Character:new{ramLocation = character['character2']}
+local character2 = Character:new{ramLocation = character['character3']}
+local character2 = Character:new{ramLocation = character['character4']}
 
 return {
     character1 = character1,
     character2 = character2,
+    character3 = character3,
+    character4 = character4,
 }
