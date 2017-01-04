@@ -1,5 +1,6 @@
 charmap = require 'charmap'
 bit = require 'bit32'
+Armor = require 'armor'
 Weapon = require 'weapon'
 
 local character = {
@@ -111,11 +112,13 @@ function Character:getNextXP()
 end
 
 function Character:getWeapon(character_number)
+    --return self:getValueByLocationOffset(character['weapon_' .. character_number])
     return Weapon:new{ramLocation = self:getValueByLocationOffset(character['weapon_' .. character_number])}
+    --return self:getValueByLocationOffset(character['weapon_' .. character_number])
 end
 
-function Character:getArmor(place)
-    return self:getValueByLocationOffset(character['armor_' .. place])
+function Character:getArmor(character_number)
+    return Armor:new{ramLocation = self:getValueByLocationOffset(character['armor_' .. character_number])}
 end
 
 function Character:getMaxDamager()

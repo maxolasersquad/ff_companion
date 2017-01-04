@@ -20,7 +20,7 @@ local effects = {
 }
 
 local weapons = {
-    [0x00] = "Nothing",
+    [0x00] = "",
     [0x01] = "Wooden Nunchuck",
     [0x02] = "Small Knife",
     [0x03] = "Wooden Staff",

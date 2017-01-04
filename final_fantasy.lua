@@ -24,6 +24,7 @@ character1Status = builder:get_object('character_1_status_value')
 character1Experience = builder:get_object('character_1_xp_value')
 character1HP = builder:get_object('character_1_hp_value')
 character1Weapon = builder:get_object('character_1_weapon_value')
+character1Armor = builder:get_object('character_1_armor_value')
 window:show_all()
 
 --window = Gtk.Window()
@@ -33,49 +34,6 @@ window:show_all()
 gameRam = {
     buttonPressed = 0x0020,
     displayMode   = 0x000D,
-}
-
-armor = {
-    [0x29] = "Cloth",
-    [0x2a] = "Wooden Armor",
-    [0x2b] = "Chain Armor",
-    [0x2c] = "Iron Armor",
-    [0x2d] = "Steel Armor",
-    [0x2e] = "Silver Armor",
-    [0x2f] = "Flame Armor",
-    [0x30] = "Ice Armor",
-    [0x31] = "Opal Armor",
-    [0x32] = "Dragon Armor",
-    [0x33] = "Copper Bracelet",
-    [0x34] = "Silver Bracelet",
-    [0x35] = "Gold Bracelet",
-    [0x36] = "Opal Bracelet",
-    [0x37] = "White Shirt",
-    [0x38] = "Black Shirt",
-    [0x39] = "Wooden Shield",
-    [0x3a] = "Iron Shield",
-    [0x3b] = "Silver Shield",
-    [0x3c] = "Flame Shield",
-    [0x3d] = "Ice Shield",
-    [0x3e] = "Opal Shield",
-    [0x3f] = "Aegis",
-    [0x40] = "Buckler",
-    [0x41] = "Procape",
-    [0x42] = "Cape",
-    [0x43] = "Wooden Helmet",
-    [0x44] = "Iron Helmet",
-    [0x45] = "Silver Helmet",
-    [0x46] = "Opal Helmet",
-    [0x47] = "Heal Helmet",
-    [0x48] = "Ribbon",
-    [0x49] = "Gloves",
-    [0x4a] = "Copper Gauntlet",
-    [0x4b] = "Iron Gauntlet",
-    [0x4c] = "Silver Gauntlet",
-    [0x4d] = "Zeus Gauntlet",
-    [0x4e] = "Power Gauntlet",
-    [0x4f] = "Opal Gauntlet",
-    [0x50] = "Proring"
 }
 
 controller = {
@@ -180,7 +138,12 @@ end
 
 function updateCharacter1Weapon()
     weapon = character.character1:getWeapon(1)
-    character1Weapon:set_text(weapon:getName() .. ': ' .. weapon:getDamage() )
+    character1Weapon:set_text(weapon:getName() .. ': ' .. weapon:getDamage(), -1)
+end
+
+function updateCharacter1Armor()
+    armor = character.character1:getArmor(1)
+    character1Armor:set_text(armor:getName() .. ': ' .. armor:getAbsorption(), -1)
 end
 
 while (true) do
@@ -199,5 +162,6 @@ while (true) do
 		updateCharacter1Experience()
 		updateCharacter1HP()
     updateCharacter1Weapon()
+    updateCharacter1Armor()
     emu.frameadvance()
 end
