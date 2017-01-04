@@ -112,9 +112,7 @@ function Character:getNextXP()
 end
 
 function Character:getWeapon(character_number)
-    --return self:getValueByLocationOffset(character['weapon_' .. character_number])
     return Weapon:new{ramLocation = self:getValueByLocationOffset(character['weapon_' .. character_number])}
-    --return self:getValueByLocationOffset(character['weapon_' .. character_number])
 end
 
 function Character:getArmor(character_number)
