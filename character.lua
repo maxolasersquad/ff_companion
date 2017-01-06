@@ -107,7 +107,20 @@ function Character:getNextXP()
 end
 
 function Character:getWeapon(weapon_number)
-    return Weapon:new{segmentAddress = self:getValueByLocationOffset(Character.propertyOffsets['weapon_' .. weapon_number])}
+    weapon_address = self:getValueByLocationOffset(Character.propertyOffsets['weapon_' .. weapon_number])
+    -- The high byte indicates if the weapon is equipped, the low byte is the offset.
+    value = weapon_address % 0x10
+    return Weapon:new{segmentAddress = value}
+end
+
+function Character:getEquippedWeaponIndex()
+    for i in 1,2,3,4 do
+        weapon_value = self:getValueByLocationOffset(Character.propertyOffsets['weapon_' .. i])
+        -- If the high byte is 08 then this weapon is equipped
+        if weapon_value / 0x10 == 0x08 then
+            return i
+        end
+    end
 end
 
 function Character:getArmor(armor_number)
@@ -136,6 +149,19 @@ end
 
 function Character:getLevel()
     return self:getValueByLocationOffset(Character.propertyOffsets['level']) + 1
+end
+
+function Character:getHexMap()
+    map = ''
+    for key, value in pairs(self.propertyOffsets) do
+      value = string.format('%02x', memory.readbyte(self.absoluteAddress + value))
+      if value == nil then
+          map = map .. ' '
+      else
+          map = map .. value .. ' '
+      end
+    end
+    return map
 end
 
 local character1 = Character:new{absoluteAddress = Character.absoluteAddresses[1]}

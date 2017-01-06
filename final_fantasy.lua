@@ -8,6 +8,14 @@ Gtk = lgi.require('Gtk', '3.0')
 builder = Gtk.Builder()
 builder:add_from_file('main.glade')
 window = builder:get_object('window')
+
+local handlers = {}
+
+function handlers.destroy(window)
+    os.exit()
+end
+builder:connect_signals(handlers)
+
 character1 = {
     name = builder:get_object('character_1_name'),
     class = builder:get_object('character_1_class'),
@@ -221,7 +229,7 @@ function updateCharacter1WeaponSlot1()
     if weapon:getName() then
         character1.weapon_slot_1:set_text(weapon:getName(), -1)
     else
-        character1.weapon_slot_1:set_text(weapon.segmentAddress, -1)
+        character1.weapon_slot_1:set_text('', -1)
     end
 end
 
@@ -288,7 +296,13 @@ function updateCharacter1ArmorSlot4()
     end
 end
 
+lastMap = nil
 while (true) do
+    map = character[1]:getHexMap()
+    if map ~= lastMap then
+        print(map)
+        lastMap = map
+    end
 		updateCharacter1Name()
 		updateCharacter1Level()
 		updateCharacter1HP()

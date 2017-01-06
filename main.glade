@@ -6,6 +6,7 @@
     <property name="can_focus">False</property>
     <property name="title" translatable="yes">FF Companion</property>
     <property name="has_resize_grip">True</property>
+    <signal name="destroy" handler="destroy" swapped="no"/>
     <child>
       <object class="GtkPaned" id="pane">
         <property name="visible">True</property>
