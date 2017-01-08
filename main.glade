@@ -521,6 +521,7 @@
                               <object class="GtkLabel" id="character_1_magic_level_8">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="xpad">8</property>
                                 <property name="label" translatable="yes">Level 8</property>
                               </object>
                               <packing>
@@ -884,7 +885,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_1_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="justify">center</property>
@@ -910,7 +911,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_max_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_1_max_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>
@@ -932,7 +933,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level__magic_points">
+                                  <object class="GtkLabel" id="character_1_level_2_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="justify">center</property>
@@ -958,7 +959,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level__max_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_2_max_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>
@@ -980,7 +981,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level_2_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_3_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="justify">center</property>
@@ -1006,7 +1007,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level_2_max_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_3_max_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>
@@ -1028,7 +1029,7 @@
                                 <property name="can_focus">False</property>
                                 <property name="homogeneous">True</property>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level_3_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_4_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="justify">center</property>
@@ -1054,7 +1055,7 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="character_1_level_3_max_magic_points">
+                                  <object class="GtkLabel" id="character_1_level_4_max_magic_points">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                   </object>
@@ -1218,7 +1219,6 @@
                               <object class="GtkBox" id="character_1_level_8_magic_box">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="spacing">15</property>
                                 <property name="homogeneous">True</property>
                                 <child>
                                   <object class="GtkLabel" id="character_1_level_8_magic_points">

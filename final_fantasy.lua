@@ -65,6 +65,22 @@ character1 = {
     magic_level_8_slot_2 = builder:get_object('character_1_magic_level_8_slot_2'),
     magic_level_8_slot_3 = builder:get_object('character_1_magic_level_8_slot_3'),
     magic_level_8_slot_4 = builder:get_object('character_1_magic_level_8_slot_4'),
+    magic_points_level_1 = builder:get_object('character_1_level_1_magic_points'),
+    magic_points_level_2 = builder:get_object('character_1_level_2_magic_points'),
+    magic_points_level_3 = builder:get_object('character_1_level_3_magic_points'),
+    magic_points_level_4 = builder:get_object('character_1_level_4_magic_points'),
+    magic_points_level_5 = builder:get_object('character_1_level_5_magic_points'),
+    magic_points_level_6 = builder:get_object('character_1_level_6_magic_points'),
+    magic_points_level_7 = builder:get_object('character_1_level_7_magic_points'),
+    magic_points_level_8 = builder:get_object('character_1_level_8_magic_points'),
+    max_magic_points_level_1 = builder:get_object('character_1_level_1_max_magic_points'),
+    max_magic_points_level_2 = builder:get_object('character_1_level_2_max_magic_points'),
+    max_magic_points_level_3 = builder:get_object('character_1_level_3_max_magic_points'),
+    max_magic_points_level_4 = builder:get_object('character_1_level_4_max_magic_points'),
+    max_magic_points_level_5 = builder:get_object('character_1_level_5_max_magic_points'),
+    max_magic_points_level_6 = builder:get_object('character_1_level_6_max_magic_points'),
+    max_magic_points_level_7 = builder:get_object('character_1_level_7_max_magic_points'),
+    max_magic_points_level_8 = builder:get_object('character_1_level_8_max_magic_points'),
     weapon_slot_1 = builder:get_object('character_1_weapon_slot_1'),
     weapon_slot_2 = builder:get_object('character_1_weapon_slot_2'),
     weapon_slot_3 = builder:get_object('character_1_weapon_slot_3'),
@@ -224,107 +240,114 @@ function updateCharacter1EvadePercent()
     character1.evade_percent:set_text(character[1]:getEvadePercent(), -1)
 end
 
-function updateCharacter1WeaponSlot1()
-    weapon = character[1]:getWeapon(1)
-    if weapon:getName() then
-        character1.weapon_slot_1:set_text(weapon:getName(), -1)
-    else
-        character1.weapon_slot_1:set_text('', -1)
-    end
-end
-
-function updateCharacter1WeaponSlot2()
-    weapon = character[1]:getWeapon(2)
+function updateCharacter1Weapon(slot)
+    weapon = character[1]:getWeapon(slot)
     if weapon then
-        character1.weapon_slot_2:set_text(weapon:getName(), -1)
+        character1['weapon_slot_' .. slot]:set_text(weapon:getName(), -1)
     else
-        character1.weapon_slot_2:set_text('', -1)
+        character1['weapon_slot_' .. slot]:set_text('', -1)
     end
 end
 
-function updateCharacter1WeaponSlot3()
-    weapon = character[1]:getWeapon(3)
-    if weapon then
-        character1.weapon_slot_3:set_text(weapon:getName(), -1)
-    else
-        character1.weapon_slot_3:set_text('', -1)
+function updateCharacter1Weapons()
+    for slot = 1,4 do
+        updateCharacter1Weapon(slot)
     end
 end
 
-function updateCharacter1WeaponSlot4()
-    weapon = character[1]:getWeapon(4)
-    if weapon then
-        character1.weapon_slot_4:set_text(weapon:getName(), -1)
-    else
-        character1.weapon_slot_4:set_text('', -1)
-    end
-end
-
-function updateCharacter1ArmorSlot1()
-    armor = character[1]:getArmor(1)
-    if armor:getName() then
-        character1.armor_slot_1:set_text(armor:getName(), -1)
-    else
-        character1.armor_slot_1:set_text(armor.segmentAddress, -1)
-    end
-end
-
-function updateCharacter1ArmorSlot2()
-    armor = character[1]:getArmor(2)
+function updateCharacter1Armor(slot)
+    armor = character[1]:getArmor(slot)
     if armor then
-        character1.armor_slot_2:set_text(armor:getName(), -1)
+        character1['armor_slot_' .. slot]:set_text(armor:getName(), -1)
     else
-        character1.armor_slot_2:set_text('', -1)
+        character1['armor_slot_' .. slot]:set_text('', -1)
     end
 end
 
-function updateCharacter1ArmorSlot3()
-    armor = character[1]:getArmor(3)
-    if armor then
-        character1.armor_slot_3:set_text(armor:getName(), -1)
-    else
-        character1.armor_slot_3:set_text('', -1)
+function updateCharacter1Armors()
+    for slot = 1,4 do
+        updateCharacter1Armor(slot)
     end
 end
 
-function updateCharacter1ArmorSlot4()
-    armor = character[1]:getArmor(4)
-    if armor then
-        character1.armor_slot_4:set_text(armor:getName(), -1)
+function updateCharacter1Magic(level, slot)
+    magic = character[1]:getMagic(level, slot)
+    if magic then
+        character1['magic_level_' .. level .. '_slot_' .. slot]:set_text(magic:getName(), -1)
     else
-        character1.armor_slot_4:set_text('', -1)
+        character1['magic_level_' .. level .. '_slot_' .. slot]:set_text('', -1)
+    end
+end
+
+function updateCharacter1Magics()
+    for level=1,8 do
+        for slot=1,3 do
+            updateCharacter1Magic(level, slot)
+        end
+    end
+end
+
+function updateCharacter1MagicPoint(level)
+    character1['magic_points_level_' .. level]:set_text(character[1]:getMagicPoints(level), -1)
+end
+
+function updateCharacter1MagicPoints()
+    for level=1,8 do
+        updateCharacter1MagicPoint(level)
+    end
+end
+
+function updateCharacter1MaxMagicPoint(level)
+    character1['max_magic_points_level_' .. level]:set_text(character[1]:getMaxMagicPoints(level), -1)
+end
+
+function updateCharacter1MaxMagicPoints()
+    for level=1,8 do
+        updateCharacter1MaxMagicPoint(level)
     end
 end
 
 lastMap = nil
 while (true) do
-    map = character[1]:getHexMap()
-    if map ~= lastMap then
-        print(map)
-        lastMap = map
+    map1 = character[1]:getHexMap()
+    if map1 ~= lastMap1 then
+        print(map1)
+        lastMap1 = map1
     end
-		updateCharacter1Name()
-		updateCharacter1Level()
-		updateCharacter1HP()
-		updateCharacter1MaxHP()
-		updateCharacter1Experience()
-		updateCharacter1NextLevel()
-		updateCharacter1Strength()
-		updateCharacter1Agility()
-		updateCharacter1Intelligence()
-		updateCharacter1Vitality()
-		updateCharacter1Luck()
-		updateCharacter1Damage()
-		updateCharacter1HitPercent()
-		updateCharacter1Absorb()
-		updateCharacter1EvadePercent()
-		updateCharacter1WeaponSlot1()
-		updateCharacter1WeaponSlot2()
-		updateCharacter1WeaponSlot3()
-		updateCharacter1WeaponSlot4()
-		updateCharacter1ArmorSlot1()
-		updateCharacter1ArmorSlot2()
-		updateCharacter1ArmorSlot3()
-		updateCharacter1ArmorSlot4()
+    map2 = character[2]:getHexMap()
+    if map2 ~= lastMap2 then
+        print(map2)
+        lastMap2 = map2
+    end
+    map3 = character[3]:getHexMap()
+    if map3 ~= lastMap3 then
+        print(map3)
+        lastMap3 = map3
+    end
+    map4 = character[4]:getHexMap()
+    if map4 ~= lastMap4 then
+        print(map4)
+        lastMap4 = map4
+    end
+    updateCharacter1Name()
+    updateCharacter1Level()
+    updateCharacter1HP()
+    updateCharacter1MaxHP()
+    updateCharacter1Experience()
+    updateCharacter1NextLevel()
+    updateCharacter1Strength()
+    updateCharacter1Agility()
+    updateCharacter1Intelligence()
+    updateCharacter1Vitality()
+    updateCharacter1Luck()
+    updateCharacter1Damage()
+    updateCharacter1HitPercent()
+    updateCharacter1Absorb()
+    updateCharacter1EvadePercent()
+    updateCharacter1Weapons()
+    updateCharacter1Armors()
+    updateCharacter1Magics()
+    updateCharacter1MagicPoints()
+    updateCharacter1MaxMagicPoints()
     emu.frameadvance()
 end
