@@ -16,80 +16,109 @@ function handlers.destroy(window)
 end
 builder:connect_signals(handlers)
 
-character1 = {
-    name = builder:get_object('character_1_name'),
-    class = builder:get_object('character_1_class'),
-    level = builder:get_object('character_1_level'),
-    hp = builder:get_object('character_1_hp'),
-    max_hp = builder:get_object('character_1_max_hp'),
-    experience = builder:get_object('character_1_experience'),
-    next_level = builder:get_object('character_1_next_level'),
-    strength = builder:get_object('character_1_strength'),
-    agility = builder:get_object('character_1_agility'),
-    intelligence = builder:get_object('character_1_intelligence'),
-    vitality = builder:get_object('character_1_vitality'),
-    luck = builder:get_object('character_1_luck'),
-    damage = builder:get_object('character_1_damage'),
-    hit_percent = builder:get_object('character_1_hit_percent'),
-    absorb = builder:get_object('character_1_absorb'),
-    evade_percent = builder:get_object('character_1_evade_percent'),
-    magic_level_1_slot_1 = builder:get_object('character_1_magic_level_1_slot_1'),
-    magic_level_1_slot_2 = builder:get_object('character_1_magic_level_1_slot_2'),
-    magic_level_1_slot_3 = builder:get_object('character_1_magic_level_1_slot_3'),
-    magic_level_1_slot_4 = builder:get_object('character_1_magic_level_1_slot_4'),
-    magic_level_2_slot_1 = builder:get_object('character_1_magic_level_2_slot_1'),
-    magic_level_2_slot_2 = builder:get_object('character_1_magic_level_2_slot_2'),
-    magic_level_2_slot_3 = builder:get_object('character_1_magic_level_2_slot_3'),
-    magic_level_2_slot_4 = builder:get_object('character_1_magic_level_2_slot_4'),
-    magic_level_3_slot_1 = builder:get_object('character_1_magic_level_3_slot_1'),
-    magic_level_3_slot_2 = builder:get_object('character_1_magic_level_3_slot_2'),
-    magic_level_3_slot_3 = builder:get_object('character_1_magic_level_3_slot_3'),
-    magic_level_3_slot_4 = builder:get_object('character_1_magic_level_3_slot_4'),
-    magic_level_4_slot_1 = builder:get_object('character_1_magic_level_4_slot_1'),
-    magic_level_4_slot_2 = builder:get_object('character_1_magic_level_4_slot_2'),
-    magic_level_4_slot_3 = builder:get_object('character_1_magic_level_4_slot_3'),
-    magic_level_4_slot_4 = builder:get_object('character_1_magic_level_4_slot_4'),
-    magic_level_5_slot_1 = builder:get_object('character_1_magic_level_5_slot_1'),
-    magic_level_5_slot_2 = builder:get_object('character_1_magic_level_5_slot_2'),
-    magic_level_5_slot_3 = builder:get_object('character_1_magic_level_5_slot_3'),
-    magic_level_5_slot_4 = builder:get_object('character_1_magic_level_5_slot_4'),
-    magic_level_6_slot_1 = builder:get_object('character_1_magic_level_6_slot_1'),
-    magic_level_6_slot_2 = builder:get_object('character_1_magic_level_6_slot_2'),
-    magic_level_6_slot_3 = builder:get_object('character_1_magic_level_6_slot_3'),
-    magic_level_6_slot_4 = builder:get_object('character_1_magic_level_6_slot_4'),
-    magic_level_7_slot_1 = builder:get_object('character_1_magic_level_7_slot_1'),
-    magic_level_7_slot_2 = builder:get_object('character_1_magic_level_7_slot_2'),
-    magic_level_7_slot_3 = builder:get_object('character_1_magic_level_7_slot_3'),
-    magic_level_7_slot_4 = builder:get_object('character_1_magic_level_7_slot_4'),
-    magic_level_8_slot_1 = builder:get_object('character_1_magic_level_8_slot_1'),
-    magic_level_8_slot_2 = builder:get_object('character_1_magic_level_8_slot_2'),
-    magic_level_8_slot_3 = builder:get_object('character_1_magic_level_8_slot_3'),
-    magic_level_8_slot_4 = builder:get_object('character_1_magic_level_8_slot_4'),
-    magic_points_level_1 = builder:get_object('character_1_level_1_magic_points'),
-    magic_points_level_2 = builder:get_object('character_1_level_2_magic_points'),
-    magic_points_level_3 = builder:get_object('character_1_level_3_magic_points'),
-    magic_points_level_4 = builder:get_object('character_1_level_4_magic_points'),
-    magic_points_level_5 = builder:get_object('character_1_level_5_magic_points'),
-    magic_points_level_6 = builder:get_object('character_1_level_6_magic_points'),
-    magic_points_level_7 = builder:get_object('character_1_level_7_magic_points'),
-    magic_points_level_8 = builder:get_object('character_1_level_8_magic_points'),
-    max_magic_points_level_1 = builder:get_object('character_1_level_1_max_magic_points'),
-    max_magic_points_level_2 = builder:get_object('character_1_level_2_max_magic_points'),
-    max_magic_points_level_3 = builder:get_object('character_1_level_3_max_magic_points'),
-    max_magic_points_level_4 = builder:get_object('character_1_level_4_max_magic_points'),
-    max_magic_points_level_5 = builder:get_object('character_1_level_5_max_magic_points'),
-    max_magic_points_level_6 = builder:get_object('character_1_level_6_max_magic_points'),
-    max_magic_points_level_7 = builder:get_object('character_1_level_7_max_magic_points'),
-    max_magic_points_level_8 = builder:get_object('character_1_level_8_max_magic_points'),
-    weapon_slot_1 = builder:get_object('character_1_weapon_slot_1'),
-    weapon_slot_2 = builder:get_object('character_1_weapon_slot_2'),
-    weapon_slot_3 = builder:get_object('character_1_weapon_slot_3'),
-    weapon_slot_4 = builder:get_object('character_1_weapon_slot_4'),
-    armor_slot_1 = builder:get_object('character_1_armor_slot_1'),
-    armor_slot_2 = builder:get_object('character_1_armor_slot_2'),
-    armor_slot_3 = builder:get_object('character_1_armor_slot_3'),
-    armor_slot_4 = builder:get_object('character_1_armor_slot_4'),
+CharacterStats = {
+    characterNumber = nil,
+    properties = {
+        'name',
+        'class',
+        'level',
+        'hp',
+        'max_hp',
+        'experience',
+        'next_level',
+        'strength',
+        'agility',
+        'intelligence',
+        'vitality',
+        'luck',
+        'damage',
+        'hit_percent',
+        'absorb',
+        'evade_percent',
+        'magic_level_1_slot_1',
+        'magic_level_1_slot_2',
+        'magic_level_1_slot_3',
+        'magic_level_1_slot_4',
+        'magic_level_2_slot_1',
+        'magic_level_2_slot_2',
+        'magic_level_2_slot_3',
+        'magic_level_2_slot_4',
+        'magic_level_3_slot_1',
+        'magic_level_3_slot_2',
+        'magic_level_3_slot_3',
+        'magic_level_3_slot_4',
+        'magic_level_4_slot_1',
+        'magic_level_4_slot_2',
+        'magic_level_4_slot_3',
+        'magic_level_4_slot_4',
+        'magic_level_5_slot_1',
+        'magic_level_5_slot_2',
+        'magic_level_5_slot_3',
+        'magic_level_5_slot_4',
+        'magic_level_6_slot_1',
+        'magic_level_6_slot_2',
+        'magic_level_6_slot_3',
+        'magic_level_6_slot_4',
+        'magic_level_7_slot_1',
+        'magic_level_7_slot_2',
+        'magic_level_7_slot_3',
+        'magic_level_7_slot_4',
+        'magic_level_8_slot_1',
+        'magic_level_8_slot_2',
+        'magic_level_8_slot_3',
+        'magic_level_8_slot_4',
+        'magic_points_level_1',
+        'magic_points_level_2',
+        'magic_points_level_3',
+        'magic_points_level_4',
+        'magic_points_level_5',
+        'magic_points_level_6',
+        'magic_points_level_7',
+        'magic_points_level_8',
+        'max_magic_points_level_1',
+        'max_magic_points_level_2',
+        'max_magic_points_level_3',
+        'max_magic_points_level_4',
+        'max_magic_points_level_5',
+        'max_magic_points_level_6',
+        'max_magic_points_level_7',
+        'max_magic_points_level_8',
+        'weapon_slot_1',
+        'weapon_slot_2',
+        'weapon_slot_3',
+        'weapon_slot_4',
+        'armor_slot_1',
+        'armor_slot_2',
+        'armor_slot_3',
+        'armor_slot_4',
+    }
 }
+
+function CharacterStats:new (o)
+    setmetatable(o, self)
+    self.__index = self
+    o:init()
+    return o
+end
+
+function CharacterStats:getPropertyName(property)
+    return 'character_' .. self.characterNumber .. '_' .. property
+end
+
+function CharacterStats:init()
+    for i in pairs(self.properties) do
+        property = self.properties[i]
+        self[property] = builder:get_object(self:getPropertyName(property))
+    end
+end
+
+characterStats = {
+    CharacterStats:new{characterNumber = 1},
+    CharacterStats:new{characterNumber = 2},
+    CharacterStats:new{characterNumber = 3},
+    CharacterStats:new{characterNumber = 4},
+}
+
 window:show_all()
 
 gameRam = {
@@ -180,138 +209,138 @@ function updateDisplayMode()
     displayMode:set_text(mode, -1)
 end
 
-function updateCharacter1Name()
-    character1.name:set_text(character[1]:getName(), -1)
+function updateCharacterName(character_index)
+    characterStats[character_index].name:set_text(character[character_index]:getName(), -1)
 end
 
-function updateCharacter1Level()
-    character1.level:set_text("Level: " .. character[1]:getLevel(), -1)
+function updateCharacterLevel(character_index)
+    characterStats[character_index].level:set_text("Level: " .. character[character_index]:getLevel(), -1)
 end
 
-function updateCharacter1HP()
-    character1.hp:set_text(character[1]:getHP(), -1)
+function updateCharacterHP(character_index)
+    characterStats[character_index].hp:set_text(character[character_index]:getHP(), -1)
 end
 
-function updateCharacter1MaxHP()
-    character1.max_hp:set_text(character[1]:getMaxHP(), -1)
+function updateCharacterMaxHP(character_index)
+    characterStats[character_index].max_hp:set_text(character[character_index]:getMaxHP(), -1)
 end
 
-function updateCharacter1Experience()
-    character1.experience:set_text(character[1]:getExperience(), -1)
+function updateCharacterExperience(character_index)
+    characterStats[character_index].experience:set_text(character[character_index]:getExperience(), -1)
 end
 
-function updateCharacter1NextLevel()
-    character1.next_level:set_text(character[1]:getNextXP(), -1)
+function updateCharacterNextLevel(character_index)
+    characterStats[character_index].next_level:set_text(character[character_index]:getNextXP(), -1)
 end
 
-function updateCharacter1Strength()
-    character1.strength:set_text(character[1]:getStrength(), -1)
+function updateCharacterStrength(character_index)
+    characterStats[character_index].strength:set_text(character[character_index]:getStrength(), -1)
 end
 
-function updateCharacter1Agility()
-    character1.agility:set_text(character[1]:getAgility(), -1)
+function updateCharacterAgility(character_index)
+    characterStats[character_index].agility:set_text(character[character_index]:getAgility(), -1)
 end
 
-function updateCharacter1Intelligence()
-    character1.intelligence:set_text(character[1]:getIntelligence(), -1)
+function updateCharacterIntelligence(character_index)
+    characterStats[character_index].intelligence:set_text(character[character_index]:getIntelligence(), -1)
 end
 
-function updateCharacter1Vitality()
-    character1.vitality:set_text(character[1]:getVitality(), -1)
+function updateCharacterVitality(character_index)
+    characterStats[character_index].vitality:set_text(character[character_index]:getVitality(), -1)
 end
 
-function updateCharacter1Luck()
-    character1.luck:set_text(character[1]:getLuck(), -1)
+function updateCharacterLuck(character_index)
+    characterStats[character_index].luck:set_text(character[character_index]:getLuck(), -1)
 end
 
-function updateCharacter1Damage()
-    character1.damage:set_text(character[1]:getDamage(), -1)
+function updateCharacterDamage(character_index)
+    characterStats[character_index].damage:set_text(character[character_index]:getDamage(), -1)
 end
 
-function updateCharacter1HitPercent()
-    character1.hit_percent:set_text(character[1]:getHitPercent(), -1)
+function updateCharacterHitPercent(character_index)
+    characterStats[character_index].hit_percent:set_text(character[character_index]:getHitPercent(), -1)
 end
 
-function updateCharacter1Absorb()
-    character1.absorb:set_text(character[1]:getAbsorb(), -1)
+function updateCharacterAbsorb(character_index)
+    characterStats[character_index].absorb:set_text(character[character_index]:getAbsorb(), -1)
 end
 
-function updateCharacter1EvadePercent()
-    character1.evade_percent:set_text(character[1]:getEvadePercent(), -1)
+function updateCharacterEvadePercent(character_index)
+    characterStats[character_index].evade_percent:set_text(character[character_index]:getEvadePercent(), -1)
 end
 
-function updateCharacter1Weapon(slot)
+function updateCharacterWeapon(character_index, slot)
     equipped = ''
-    weapon = character[1]:getWeapon(slot)
+    weapon = character[character_index]:getWeapon(slot)
     if weapon then
-        if character[1]:getEquippedWeaponIndex() == slot then
+        if character[character_index]:getEquippedWeaponIndex() == slot then
             equipped = 'E - '
         end
-        character1['weapon_slot_' .. slot]:set_text(equipped .. weapon:getName(), -1)
+        characterStats[character_index]['weapon_slot_' .. slot]:set_text(equipped .. weapon:getName(), -1)
     else
-        character1['weapon_slot_' .. slot]:set_text('', -1)
+        characterStats[character_index]['weapon_slot_' .. slot]:set_text('', -1)
     end
 end
 
-function updateCharacter1Weapons()
+function updateCharacterWeapons(character_index)
     for slot = 1,4 do
-        updateCharacter1Weapon(slot)
+        updateCharacterWeapon(character_index, slot)
     end
 end
 
-function updateCharacter1Armor(slot)
+function updateCharacterArmor(character_index, slot)
     equipped = ''
-    armor = character[1]:getArmor(slot)
+    armor = character[character_index]:getArmor(slot)
     if armor then
-        if character[1]:getEquippedArmorIndex() == slot then
+        if character[character_index]:getEquippedArmorIndex() == slot then
             equipped = 'E - '
           end
-        character1['armor_slot_' .. slot]:set_text(equipped .. armor:getName(), -1)
+        characterStats[character_index]['armor_slot_' .. slot]:set_text(equipped .. armor:getName(), -1)
     else
-        character1['armor_slot_' .. slot]:set_text('', -1)
+        characterStats[character_index]['armor_slot_' .. slot]:set_text('', -1)
     end
 end
 
-function updateCharacter1Armors()
+function updateCharacterArmors(character_index)
     for slot = 1,4 do
-        updateCharacter1Armor(slot)
+        updateCharacterArmor(character_index, slot)
     end
 end
 
-function updateCharacter1Magic(level, slot)
-    magic = character[1]:getMagic(level, slot)
+function updateCharacterMagic(character_index, level, slot)
+    magic = character[character_index]:getMagic(level, slot)
     if magic then
-        character1['magic_level_' .. level .. '_slot_' .. slot]:set_text(magic:getName(), -1)
+        characterStats[character_index]['magic_level_' .. level .. '_slot_' .. slot]:set_text(magic:getName(), -1)
     else
-        character1['magic_level_' .. level .. '_slot_' .. slot]:set_text('', -1)
+        characterStats[character_index]['magic_level_' .. level .. '_slot_' .. slot]:set_text('', -1)
     end
 end
 
-function updateCharacter1Magics()
+function updateCharacterMagics(character_index)
     for level=1,8 do
         for slot=1,3 do
-            updateCharacter1Magic(level, slot)
+            updateCharacterMagic(character_index, level, slot)
         end
     end
 end
 
-function updateCharacter1MagicPoint(level)
-    character1['magic_points_level_' .. level]:set_text(character[1]:getMagicPoints(level), -1)
+function updateCharacterMagicPoint(character_index, level)
+    characterStats[character_index]['magic_points_level_' .. level]:set_text(character[character_index]:getMagicPoints(level), -1)
 end
 
-function updateCharacter1MagicPoints()
+function updateCharacterMagicPoints(character_index)
     for level=1,8 do
-        updateCharacter1MagicPoint(level)
+        updateCharacterMagicPoint(character_index, level)
     end
 end
 
-function updateCharacter1MaxMagicPoint(level)
-    character1['max_magic_points_level_' .. level]:set_text(character[1]:getMaxMagicPoints(level), -1)
+function updateCharacterMaxMagicPoint(character_index, level)
+    characterStats[character_index]['max_magic_points_level_' .. level]:set_text(character[character_index]:getMaxMagicPoints(level), -1)
 end
 
-function updateCharacter1MaxMagicPoints()
+function updateCharacterMaxMagicPoints(character_index)
     for level=1,8 do
-        updateCharacter1MaxMagicPoint(level)
+        updateCharacterMaxMagicPoint(character_index, level)
     end
 end
 
@@ -337,25 +366,33 @@ while (true) do
         print(map4)
         lastMap4 = map4
     end
-    updateCharacter1Name()
-    updateCharacter1Level()
-    updateCharacter1HP()
-    updateCharacter1MaxHP()
-    updateCharacter1Experience()
-    updateCharacter1NextLevel()
-    updateCharacter1Strength()
-    updateCharacter1Agility()
-    updateCharacter1Intelligence()
-    updateCharacter1Vitality()
-    updateCharacter1Luck()
-    updateCharacter1Damage()
-    updateCharacter1HitPercent()
-    updateCharacter1Absorb()
-    updateCharacter1EvadePercent()
-    updateCharacter1Weapons()
-    updateCharacter1Armors()
-    updateCharacter1Magics()
-    updateCharacter1MagicPoints()
-    updateCharacter1MaxMagicPoints()
+    frame_count = 0
+    for index = 1,4 do
+      frame_count = frame_count + 1
+      if frame_count == 2 then
+        emu.frameadvance()
+        frame_count = 0
+      end
+      updateCharacterName(index)
+      updateCharacterLevel(index)
+      updateCharacterHP(index)
+      updateCharacterMaxHP(index)
+      updateCharacterExperience(index)
+      updateCharacterNextLevel(index)
+      updateCharacterStrength(index)
+      updateCharacterAgility(index)
+      updateCharacterIntelligence(index)
+      updateCharacterVitality(index)
+      updateCharacterLuck(index)
+      updateCharacterDamage(index)
+      updateCharacterHitPercent(index)
+      updateCharacterAbsorb(index)
+      updateCharacterEvadePercent(index)
+      updateCharacterWeapons(index)
+      updateCharacterArmors(index)
+      updateCharacterMagics(index)
+      updateCharacterMagicPoints(index)
+      updateCharacterMaxMagicPoints(index)
+    end
     emu.frameadvance()
 end
