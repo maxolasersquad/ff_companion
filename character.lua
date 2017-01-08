@@ -197,10 +197,10 @@ function Character:getWeapon(weapon_number)
 end
 
 function Character:getEquippedWeaponIndex()
-    for i in 1,2,3,4 do
+    for i = 1,4 do
         weapon_value = self:getValueByLocationOffset(Character.propertyOffsets['weapon_' .. i])
         -- If the high byte is 08 then this weapon is equipped
-        if weapon_value / 0x10 == 0x08 then
+        if bit.rshift(weapon_value, 4) == 0x08 then
             return i
         end
     end
@@ -211,6 +211,16 @@ function Character:getArmor(armor_number)
     -- If the high byte is 08 then this armor is equipped
     value = armor_address % 0x10
     return Armor:new{segmentAddress = value}
+end
+
+function Character:getEquippedArmorIndex()
+    for i = 1,4 do
+        armor_value = self:getValueByLocationOffset(Character.propertyOffsets['armor_' .. i])
+        -- If the high byte is 08 then this armor is equipped
+        if bit.rshift(armor_value, 4) == 0x08 then
+            return i
+        end
+    end
 end
 
 function Character:getDamage()

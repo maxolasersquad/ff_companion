@@ -241,9 +241,13 @@ function updateCharacter1EvadePercent()
 end
 
 function updateCharacter1Weapon(slot)
+    equipped = ''
     weapon = character[1]:getWeapon(slot)
     if weapon then
-        character1['weapon_slot_' .. slot]:set_text(weapon:getName(), -1)
+        if character[1]:getEquippedWeaponIndex() == slot then
+            equipped = 'E - '
+        end
+        character1['weapon_slot_' .. slot]:set_text(equipped .. weapon:getName(), -1)
     else
         character1['weapon_slot_' .. slot]:set_text('', -1)
     end
@@ -256,9 +260,13 @@ function updateCharacter1Weapons()
 end
 
 function updateCharacter1Armor(slot)
+    equipped = ''
     armor = character[1]:getArmor(slot)
     if armor then
-        character1['armor_slot_' .. slot]:set_text(armor:getName(), -1)
+        if character[1]:getEquippedArmorIndex() == slot then
+            equipped = 'E - '
+          end
+        character1['armor_slot_' .. slot]:set_text(equipped .. armor:getName(), -1)
     else
         character1['armor_slot_' .. slot]:set_text('', -1)
     end
