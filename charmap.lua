@@ -74,9 +74,9 @@ return {
     [0XD4] = '⚔', -- Sword
     [0xD5] = '🔨', -- Hammer
     [0xD6] = '🗡', -- Knife
-    [0xD7] = '', -- Axe
-    [0xD8] = '', -- Staff
-    [0xD9] = '', -- Nunchaku
+    [0xD7] = '🪓', -- Axe
+    [0xD8] = 'r', -- Staff
+    [0xD9] = '|', -- Nunchaku
     [0x1A] = '',
     [0x1B] = '',
     [0x1C] = '',
